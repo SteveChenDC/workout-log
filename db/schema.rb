@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160409014015) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
     t.integer  "sets"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160409014015) do
     t.integer  "reps"
   end
 
-  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id"
+  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id", using: :btree
 
   create_table "workouts", force: :cascade do |t|
     t.datetime "date"
@@ -33,4 +36,5 @@ ActiveRecord::Schema.define(version: 20160409014015) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "exercises", "workouts"
 end
