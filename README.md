@@ -1,4 +1,4 @@
-== Workout Log
+# Workout Log
 Rails app that keeps track of workouts entered with related exercises.
 
 Try it out [Here](https://powerful-depths-98172.herokuapp.com/)
